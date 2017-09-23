@@ -11,6 +11,7 @@ pipeline:
     repo: quay.io/armswarm/tor
     build_args:
       - TOR_PACKAGE=0.3.0.8-r0
+      - ARM_VERSION=1.4.5.0
     dockerfile: Dockerfile
     tag: [ "0.3.0.8", "0.3.0", "0.3", "latest" ]
     when:

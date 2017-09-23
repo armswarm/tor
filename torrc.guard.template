@@ -9,7 +9,7 @@ DataDirectory /var/lib/tor
 
 RunAsDaemon 0
 
-ControlSocket /var/lib/tor/.control.sock
+ControlSocket /var/run/tor/control
 
 ORPort ${TOR_ORPORT}
 Address ${TOR_HOSTNAME}
