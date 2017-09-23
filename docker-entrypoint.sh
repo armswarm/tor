@@ -9,4 +9,5 @@ _template="${TOR_CONFIG_TEMPLATE:-guard}"
 chown tor:root /var/lib/tor \
     && chmod 0700 /var/lib/tor \
     && cat "/etc/tor/torrc.${_template}.template" | envsubst > "${_torrc}" \
+    && chown tor:root "${_template}" \
     && su-exec tor tor -f "${_torrc}" "$@"

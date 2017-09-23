@@ -8,8 +8,8 @@ RUN apk add --no-cache \
         su-exec \
         tor=${TOR_PACKAGE}
 
-ADD docker-entrypoint.sh /usr/local/bin/
-
 ADD torrc.*.template /etc/tor/
+
+ADD docker-entrypoint.sh /usr/local/bin/
 
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
