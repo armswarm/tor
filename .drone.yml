@@ -1,0 +1,24 @@
+platform: linux/arm
+
+clone:
+  git:
+    image: quay.io/armswarm/drone-git
+
+pipeline:
+  build_and_publish:
+    image: quay.io/armswarm/drone-docker
+    secrets: [ docker_registry, docker_username, docker_password ]
+    repo: quay.io/armswarm/tor
+    build_args:
+      - TOR_PACKAGE=0.3.0.8-r0
+    dockerfile: Dockerfile
+    tag: [ "0.3.0.8", "0.3.0", "0.3", "latest" ]
+    when:
+      branch: master
+      event: push
+
+  notify:
+    image: quay.io/armswarm/drone-slack
+    secrets: [ slack_webhook, plugin_channel, plugin_template ]
+    when:
+      status: [ failure, success ]
