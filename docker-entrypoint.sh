@@ -6,4 +6,7 @@ set -o pipefail
 
 _torrc="$(mktemp -t torrc.XXXXXX)"
 _template="${TOR_CONFIG_TEMPLATE:-guard}"
-cat "/etc/tor/torrc.${_template}.template" | envsubst > "${_torrc}" && exec tor -f "${_torrc}" "$@"
+chown tor:tor /var/lib/tor \
+    && chmod 0700 /var/lib/tor \
+    && cat "/etc/tor/torrc.${_template}.template" | envsubst > "${_torrc}" \
+    && su-exec tor tor -f "${_torrc}" "$@"

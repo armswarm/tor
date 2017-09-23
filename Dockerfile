@@ -5,6 +5,7 @@ ARG TOR_PACKAGE
 RUN apk add --no-cache \
         ca-certificates \
         gettext \
+        su-exec \
         tor=${TOR_PACKAGE}
 
 ADD docker-entrypoint.sh /usr/local/bin/
