@@ -12,10 +12,8 @@ RUN apk add --no-cache \
         tor=${TOR_PACKAGE} \
     && mkdir -p /var/run/tor && chown tor:root /var/run/tor && chmod 0700 /var/run/tor \
     && _tmp="$(mktemp -t -d tor-arm.XXXXXX)" && cd "${_tmp}" \
-    && apk add --no-cache --virtual=.builddeps curl \
     && curl -fsS "https://www.atagar.com/arm/resources/static/arm-${ARM_VERSION}.tar.bz2" | tar jx \
     && cd arm && ./install \
-    && mkdir -p /root/.arm && echo 'startup.interface.socket /var/run/tor/control' > /root/.arm/armrc \
     && cd / && rm -rf "${_tmp}"
 
 ADD torrc.*.template /etc/tor/
