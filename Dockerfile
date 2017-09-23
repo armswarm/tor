@@ -9,6 +9,8 @@ RUN apk add --no-cache \
         su-exec \
         curl \
         python \
+    && apk add --no-cache \
+        --repository http://dl-3.alpinelinux.org/alpine/edge/community/ \
         tor=${TOR_PACKAGE} \
     && mkdir -p /var/run/tor && chown tor:root /var/run/tor && chmod 0700 /var/run/tor \
     && _tmp="$(mktemp -t -d tor-arm.XXXXXX)" && cd "${_tmp}" \
