@@ -11,7 +11,9 @@ RunAsDaemon 0
 
 ControlSocket /var/run/tor/control
 
-ORPort ${TOR_ORPORT}
+ORPort ${TOR_ORPORT} NoListen
+ORPort 9001 NoAdvertise
+
 Address ${TOR_HOSTNAME}
 Nickname ${TOR_NICKNAME}
 
@@ -20,6 +22,7 @@ RelayBandwidthBurst ${TOR_BANDWIDTH_BURST}
 
 ContactInfo ${TOR_CONTACT_INFO}
 
-DirPort ${TOR_DIRPORT}
+DirPort ${TOR_DIRPORT} NoListen
+ORPort 8080 NoAdvertise
 
 ExitPolicy reject *:*
