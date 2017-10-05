@@ -23,6 +23,6 @@ RelayBandwidthBurst ${TOR_BANDWIDTH_BURST}
 ContactInfo ${TOR_CONTACT_INFO}
 
 DirPort ${TOR_DIRPORT} NoListen
-ORPort 8080 NoAdvertise
+DirPort 8080 NoAdvertise
 
 ExitPolicy reject *:*
