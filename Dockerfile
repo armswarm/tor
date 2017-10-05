@@ -21,7 +21,7 @@ RUN apk add --no-cache \
     && _dist="arm-${ARM_VERSION}.tar.bz2" \
     && curl -fsSo "${_dist}" "https://www.atagar.com/arm/resources/static/${_dist}" \
     && curl -fsSo "${_dist}.asc" "https://www.atagar.com/arm/resources/static/${_dist}.asc" \
-    && gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 68278CC5DD2D1E85C4E45AD90445B7AB9ABBEEC6 \
+    && gpg --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-keys 68278CC5DD2D1E85C4E45AD90445B7AB9ABBEEC6 \
     && gpg --verify "${_dist}.asc" \
     && tar jxf "${_dist}" \
     && cd arm && ./install \
