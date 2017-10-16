@@ -17,6 +17,9 @@ RUN apk add --no-cache \
         curl \
         gnupg \
         go \
+        git \
+        gcc \
+        musl-dev \
     && mkdir -p /var/run/tor && chown tor:root /var/run/tor && chmod 0700 /var/run/tor \
     && _tmp="$(mktemp -t -d tor-arm.XXXXXX)" && cd "${_tmp}" \
     && _dist="arm-${ARM_VERSION}.tar.bz2" \
