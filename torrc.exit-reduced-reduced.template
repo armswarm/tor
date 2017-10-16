@@ -1,5 +1,5 @@
 ## Configuration file for a typical Tor guard relay
-## Last updated 23 September 2017 for Tor 0.3.0.8
+## Last updated 23 September 2017 for Tor 0.3.1.7
 
 SOCKSPort 0
 

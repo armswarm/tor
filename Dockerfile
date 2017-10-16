@@ -13,9 +13,10 @@ RUN apk add --no-cache \
         -X https://ftp.acc.umu.se/mirror/alpinelinux.org/edge/community/ \
         tor=${TOR_PACKAGE} \
     && apk add --no-cache \
-        --virtual=.fetch_deps \
+        --virtual=.build_deps \
         curl \
         gnupg \
+        go \
     && mkdir -p /var/run/tor && chown tor:root /var/run/tor && chmod 0700 /var/run/tor \
     && _tmp="$(mktemp -t -d tor-arm.XXXXXX)" && cd "${_tmp}" \
     && _dist="arm-${ARM_VERSION}.tar.bz2" \
@@ -26,7 +27,13 @@ RUN apk add --no-cache \
     && tar jxf "${_dist}" \
     && cd arm && ./install \
     && cd / && rm -rf "${_tmp}" \
-    && apk del .fetch_deps && rm -rf /root/.gnupg/
+    ## obfs4
+    && mkdir /go \
+    && export GOPATH=/go \
+    && go get git.torproject.org/pluggable-transports/obfs4.git/obfs4proxy \
+    && cp $GOPATH/bin/obfs4proxy /usr/local/bin/ \
+    ## cleanup
+    && apk del .build_deps && rm -rf /go && rm -rf /root/.gnupg/
 
 ADD torrc.*.template /etc/tor/
 
