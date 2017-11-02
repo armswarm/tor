@@ -17,6 +17,9 @@ ORPort 9001 NoAdvertise
 Address ${TOR_HOSTNAME}
 Nickname ${TOR_NICKNAME}
 
+RelayBandwidthRate ${TOR_BANDWIDTH}
+RelayBandwidthBurst ${TOR_BANDWIDTH_BURST}
+
 ContactInfo ${TOR_CONTACT_INFO}
 
 DirPort ${TOR_DIRPORT} NoListen

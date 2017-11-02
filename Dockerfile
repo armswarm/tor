@@ -9,7 +9,6 @@ RUN apk add --no-cache \
         su-exec \
         python \
     && apk add --no-cache \
-        -X https://ftp.acc.umu.se/mirror/alpinelinux.org/edge/main/ \
         -X https://ftp.acc.umu.se/mirror/alpinelinux.org/edge/community/ \
         tor=${TOR_PACKAGE} \
     && apk add --no-cache \
