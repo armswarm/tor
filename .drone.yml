@@ -10,7 +10,7 @@ pipeline:
     secrets: [ docker_registry, docker_username, docker_password ]
     repo: quay.io/armswarm/tor
     build_args:
-      - TOR_PACKAGE=0.3.1.8-r1
+      - TOR_PACKAGE=0.3.1.8-r0
     dockerfile: Dockerfile
     tag: [ "0.3.1.8", "0.3.1", "0.3", "latest" ]
     when:
