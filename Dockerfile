@@ -1,4 +1,4 @@
-FROM quay.io/armswarm/alpine:3.6
+FROM quay.io/armswarm/alpine:3.7
 
 ARG TOR_PACKAGE
 
