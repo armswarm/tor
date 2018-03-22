@@ -32,4 +32,6 @@ ADD torrc.*.template /etc/tor/
 
 ADD docker-entrypoint.sh /usr/local/bin/
 
+VOLUME ["/var/run/tor"]
+
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
