@@ -8,8 +8,8 @@ RUN apk add --no-cache \
         su-exec \
         python3 \
     && apk add --no-cache \
-        -X https://ftp.acc.umu.se/mirror/alpinelinux.org/3.8/main/ \
-        -X https://ftp.acc.umu.se/mirror/alpinelinux.org/3.8/community/ \
+        -X https://ftp.acc.umu.se/mirror/alpinelinux.org/v3.8/main/ \
+        -X https://ftp.acc.umu.se/mirror/alpinelinux.org/v3.8/community/ \
         tor=${TOR_PACKAGE} \
     && apk add --no-cache \
         --virtual=.build_deps \
